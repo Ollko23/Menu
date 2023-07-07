@@ -1,0 +1,54 @@
+{
+  "meals": [
+    {
+      "id": "af233576-6063-4a41-894f-7373e458f74c",
+      "name": "Curry",
+      "img": "https://www.noracooks.com/wp-content/uploads/2022/08/vegan-curry-6.jpg",
+      "ingredients": [
+        "chickpeas",
+        "coliflor"
+      ],
+      "link": "https://www.noracooks.com/wp-content/uploads/2022/08/vegan-curry-6.jpg",
+      "instructions": "1. Buy things.\n2. Cook\n3. Eat\n"
+    },
+    {
+      "id": "3dd31305-d552-4468-b9fc-23d9c004c158",
+      "name": "Chili",
+      "img": "https://rainbowplantlife.com/wp-content/uploads/2021/11/chili-edited-photos-6-of-8-1638x2048.jpg",
+      "ingredients": [
+        "beans",
+        "tomatos"
+      ],
+      "link": "https://rainbowplantlife.com/wp-content/uploads/2021/11/chili-edited-photos-6-of-8-1638x2048.jpg",
+      "instructions": "1. Cook"
+    }
+  ],
+  "menu": {
+    "data": [
+      {
+        "id": "101b27de-8dff-4d9f-b14d-20e5a9173af5",
+        "name": "Chili",
+        "img": "https://rainbowplantlife.com/wp-content/uploads/2021/11/chili-edited-photos-6-of-8-1638x2048.jpg",
+        "ingredients": [
+          "beans",
+          "tomatos"
+        ],
+        "link": "https://rainbowplantlife.com/wp-content/uploads/2021/11/chili-edited-photos-6-of-8-1638x2048.jpg",
+        "instructions": "1. Cook",
+        "parent": "meals"
+      },
+      {
+        "id": "e98c5fea-8d4a-4bcf-98de-76c09afdc240",
+        "name": "Chili",
+        "img": "https://rainbowplantlife.com/wp-content/uploads/2021/11/chili-edited-photos-6-of-8-1638x2048.jpg",
+        "ingredients": [
+          "beans",
+          "tomatos"
+        ],
+        "link": "https://rainbowplantlife.com/wp-content/uploads/2021/11/chili-edited-photos-6-of-8-1638x2048.jpg",
+        "instructions": "1. Cook",
+        "parent": "meals"
+      }
+    ]
+  }
+}
