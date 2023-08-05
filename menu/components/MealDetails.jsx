@@ -12,9 +12,9 @@ function MealDetails() {
     const { meals, setMeals } = useContext(MealsContext)
     const meal = meals.find(el => el._id == id)
 
-    function handleDelete(event) {
+    async function handleDelete(event) {
         event.preventDefault()
-        apiCall("DELETE", id)
+        await apiCall("DELETE", id)
         setMeals(prev => prev.filter(meal => meal.id != id))
         navigate(`/`);
     }

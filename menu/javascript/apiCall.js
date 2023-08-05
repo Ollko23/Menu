@@ -1,4 +1,5 @@
 export default async (type, data) => {
+    console.log(data)
     let JSON_URL = "https://doubtful-dove-cowboy-hat.cyclic.app/meals"
     let options = {
         method: type,
@@ -18,9 +19,12 @@ export default async (type, data) => {
 
     try {
         const response = await fetch(JSON_URL, options)
+        console.log(response)
         if (!response.ok) {
             throw new Error('Error occurred while fetching data');
         }
+        const responseData = await response.json();
+        return responseData
     } catch (err) {
         console.log(err)
     }

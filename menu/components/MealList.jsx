@@ -20,9 +20,7 @@ const MealList = () => {
     return (
         <>
             <div className="meals-container" id='meals'>
-                {meals.map((meal, index) => {
-                    return <Meal key={meal._id} meal={meal} />
-                })}
+                {meals.map(meal => <Meal key={meal._id} meal={meal} />)}
             </div>
         </>
     )

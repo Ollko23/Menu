@@ -11,7 +11,7 @@ function NewMealForm() {
 
     const { meals, setMeals } = useContext(MealsContext)
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const data = {
             name: name.current.value,
             img: img.current.value,
@@ -19,27 +19,28 @@ function NewMealForm() {
             link: img.current.value,
             instructions: instructions.current.value,
         }
-        setMeals(prev => prev.concat(data))
-        apiCall("POST", data)
+        const res = await apiCall("POST", data)
+        const newMeal = { ...data, _id: res._id }
+        console.log(newMeal)
+        setMeals(prev => prev.concat(newMeal))
+
         name.current.value = ""
         img.current.value = ""
         ingredients.current.value = ""
         link.current.value = ""
         instructions.current.value = ""
-        setRefresh(!refresh)
-        return false
     }
 
     return (
         <form onSubmit={handleSubmit} >
             <label htmlFor="name"></label>
-            <input type="text" name="name" id="name" ref={name} placeholder='Name' autoFocus />
+            <input required type="text" name="name" id="name" ref={name} placeholder='Name' autoFocus />
             <label htmlFor="img"></label>
-            <input type="text" name="img" id="img" ref={img} placeholder='img' />
+            <input required type="text" name="img" id="img" ref={img} placeholder='img' />
             <label htmlFor="ingredients"></label>
-            <input type="text" name="ingredients" id="ingredients" ref={ingredients} placeholder='ingredients' />
+            <input required type="text" name="ingredients" id="ingredients" ref={ingredients} placeholder='ingredients' />
             <label htmlFor="link"></label>
-            <input type="text" name="link" id="link" ref={link} placeholder='link' />
+            <input required type="text" name="link" id="link" ref={link} placeholder='link' />
             <label htmlFor="instructions"></label>
             <textarea name="instructions" id="instructions" rows="5" cols="50" ref={instructions} placeholder='Instructions' onKeyDown={e => e.keyCode == 13 && handleSubmit()} />
             <button type="submit" id="addMeal">Add meal</button>
