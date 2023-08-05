@@ -7,7 +7,6 @@ import Ingredients from './Ingredients'
 function Home() {
     return (
         <>
-            <div>Home</div>
             <Container title={"Meals"}>
                 <MealList />
             </Container>

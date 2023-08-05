@@ -6,15 +6,13 @@ import NewMealForm from './NewMealForm'
 function Meals() {
     return (
         <main>
-
+            <section className="new-meals">
+                <NewMealForm />
+            </section>
             <section className="whole-menu">
-
                 <Container title={"All meals"}>
                     <MealList />
                 </Container>
-            </section>
-            <section className="new-meals">
-                <NewMealForm />
             </section>
         </main>
     )

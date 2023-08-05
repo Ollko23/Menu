@@ -30,11 +30,17 @@ function NewMealForm() {
         link.current.value = ""
         instructions.current.value = ""
     }
-
+    const handleEnter = (event) => {
+        console.log(event.key)
+        if (event.key == "Enter" && !event.shiftKey) {
+            event.preventDefault()
+            handleSubmit()
+        }
+    }
     return (
         <form onSubmit={handleSubmit} >
             <label htmlFor="name"></label>
-            <input required type="text" name="name" id="name" ref={name} placeholder='Name' autoFocus />
+            <input required type="text" name="name" id="name" ref={name} placeholder='Name' />
             <label htmlFor="img"></label>
             <input required type="text" name="img" id="img" ref={img} placeholder='img' />
             <label htmlFor="ingredients"></label>
@@ -42,7 +48,7 @@ function NewMealForm() {
             <label htmlFor="link"></label>
             <input required type="text" name="link" id="link" ref={link} placeholder='link' />
             <label htmlFor="instructions"></label>
-            <textarea name="instructions" id="instructions" rows="5" cols="50" ref={instructions} placeholder='Instructions' onKeyDown={e => e.keyCode == 13 && handleSubmit()} />
+            <textarea name="instructions" id="instructions" rows="5" cols="50" ref={instructions} placeholder='Instructions' onKeyDown={handleEnter} />
             <button type="submit" id="addMeal">Add meal</button>
         </form>
     )
