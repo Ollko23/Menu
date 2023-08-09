@@ -1,0 +1,76 @@
+#new-meal-form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 2rem 2rem auto;
+    grid-template-areas:
+        "name img link"
+        "ing ing ing"
+        "ins ins ins"
+        ". . btn";
+    width: 70%;
+    padding: 1rem;
+    margin: 1rem;
+    border: 3px solid rgba(var(--accent));
+    border-radius: 1rem;
+    background-image: linear-gradient(to bottom right, rgba(var(--secondary), .1), rgba(var(--secondary), .6));
+}
+
+/* IDEa
+hide everything in form and make it thin, upon clicking/hovering make it toll
+use opacity for the elements inside and overflow hidden
+add transistion time so the elements don't pop up too quickly
+*/
+#new-meal-form>* {
+    margin: 0.5rem;
+}
+
+#new-meal-form>button {
+    grid-area: btn;
+    background-image: linear-gradient(92.88deg, #45b572 9.16%, #6ecc43 43.89%, #0fc847 64.72%);
+    border-radius: 2rem;
+    border-style: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: .8rem 1.6rem;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 5px;
+    transition: all .5s;
+    touch-action: manipulation;
+
+}
+
+#new-meal-form>button:hover {
+    box-shadow: #6ecc43 0 1px 1.2rem;
+    transition-duration: .1s;
+}
+
+#new-meal-form>label>input,
+#new-meal-form>label>textarea {
+    width: 100%;
+    padding: 0;
+    height: fit-content;
+}
+
+#new-meal-form>#name {
+    grid-area: name;
+}
+
+#new-meal-form>#img {
+    grid-area: img;
+}
+
+#new-meal-form>#link {
+    grid-area: link;
+}
+
+#new-meal-form>#ingredients {
+    grid-area: ing;
+}
+
+#new-meal-form>#instructions {
+    grid-area: ins;
+
+}

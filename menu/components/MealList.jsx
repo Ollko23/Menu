@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import Meal from './Meal'
 import { MealsContext } from "./MealsContext"
+import "../css/meals.css"
 
-const MealList = () => {
+const MealList = ({ max }) => {
     const { setMeals, meals } = useContext(MealsContext)
     useEffect(() => {
         const fetchMeals = async () => {
@@ -10,7 +11,8 @@ const MealList = () => {
                 const meals = await fetch("https://doubtful-dove-cowboy-hat.cyclic.app/meals")
                 if (!meals.ok) throw Error("Error fetching the meals")
                 const mealsList = await meals.json()
-                setMeals(mealsList)
+                max ? setMeals(mealsList.slice(0, max))
+                    : setMeals(mealsList)
             } catch (err) {
                 console.log(err.message)
             }
@@ -19,8 +21,8 @@ const MealList = () => {
     }, [])
     return (
         <>
-            <div className="meals-container" id='meals'>
-                {meals.map(meal => <Meal key={meal._id} meal={meal} />)}
+            <div className="meals-container" id='all-meals'>
+                {meals.map(meal => <Meal flipper={true} key={meal._id} meal={meal} />)}
             </div>
         </>
     )

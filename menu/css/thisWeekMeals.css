@@ -1,0 +1,55 @@
+#weekMeals {
+    width: 90%;
+    margin: auto;
+    padding-bottom: .5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    background: rgba(var(--primary), .3);
+    margin: 1rem 1rem 0;
+
+}
+
+.days {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.meals {
+    background: rgba(var(--secondary), .2);
+    grid-template-rows: 35vh;
+    position: relative;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin-top: 0;
+    /* overflow: hidden; */
+}
+
+#menu>.meal {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: rgba(var(--secondary), .2);
+    border-radius: 8px;
+    height: 90%;
+}
+
+
+#menu>.meal .img {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    pointer-events: none;
+    border-radius: 8px;
+    object-fit: cover;
+    min-height: 80%;
+}
+
+#menu>.meal .back {
+    display: none;
+}

@@ -7,13 +7,14 @@ import Ingredients from './Ingredients'
 function Home() {
     return (
         <>
-            <Container title={"Meals"}>
-                <MealList />
+            <Container title={"Meals"} id={"menu"}>
+                <MealList max={5} />
             </Container>
-            <Container title={"Menu"} >
+            <Container title={"Menu"} id={"weekMeals"}>
                 <ThisWeekMeals />
             </Container>
             <Ingredients />
+            <footer></footer>
         </>
     )
 }

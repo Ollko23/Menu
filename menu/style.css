@@ -1,88 +1,53 @@
+:root {
+    --primary: 72, 64, 65;
+    --secondary: 67, 67, 113;
+    --accent: 121, 174, 163;
+}
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(var(--secondary), .2);
 }
 
 /* Container */
 .container {
     margin: 1rem;
-    padding: 1rem;
-    border: 1px solid black;
+    border: 3px solid rgba(var(--accent));
+    border-radius: 1rem;
+}
+
+.container>h3 {
+    margin: 0.5rem 1rem 0;
 }
 
 /* meals List */
+.container#menu {
+    width: 70%;
+    margin: 1rem auto;
+}
+
 .meals-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-}
-
-/* ThisWeekMeals */
-.grid {
-    display: flex;
-    flex-direction: column;
-    background: grey;
-}
-
-.days {
-    display: flex;
-    /* gap: 1rem; */
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-
-.meals {
-    background: #00000057;
-    width: 100%;
-    min-height: 15vh;
-    display: flex;
-}
-
-.meals>.meal {
-    border: 1px solid black;
-    width: calc(100% / 7 - 4rem - 2px);
-}
-
-.day {
-    text-align: center;
-    width: 100%;
-    border: 1px solid black;
-    border-top: 0;
-    border-bottom: 0;
-}
-
-/* Meal */
-.meal-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid black;
-}
-
-.img {
-    width: 90%;
+    /* width: 70%; */
     margin-left: auto;
     margin-right: auto;
-    pointer-events: none;
-    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 30vh;
+    /* grid-template-rows: 17vw; */
+    gap: 1rem;
+    padding: 1rem;
 }
 
-.details {
-    width: 40%;
-    margin: auto;
-}
-
-.title {
-    text-align: center;
-    margin-bottom: 0.3rem;
-    pointer-events: none;
-}
 
 /* utulities */
 .hide {
     display: none;
+}
+
+footer {
+    height: 1rem;
 }

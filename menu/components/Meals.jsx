@@ -2,11 +2,11 @@ import React from 'react'
 import Container from './Container'
 import MealList from './MealList'
 import NewMealForm from './NewMealForm'
-
+import "../css/wholeMenu.css"
 function Meals() {
     return (
         <main>
-            <section className="new-meals">
+            <section className="new-meal">
                 <NewMealForm />
             </section>
             <section className="whole-menu">
@@ -14,6 +14,7 @@ function Meals() {
                     <MealList />
                 </Container>
             </section>
+            <footer></footer>
         </main>
     )
 }

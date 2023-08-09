@@ -1,0 +1,32 @@
+.meals>.meal {
+    width: 90%;
+
+}
+
+/* \/ delete the class from react */
+/* .meal-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.img {
+    width: 100%;
+    pointer-events: none;
+    border-radius: 8px;
+    object-fit: cover;
+    height: 80%;
+}
+
+.details {
+    width: 40%;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    pointer-events: none;
+    padding: .5rem;
+    /* height: 15%; */
+}

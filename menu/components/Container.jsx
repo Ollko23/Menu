@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Container({ title, children }) {
+function Container({ title, children, id }) {
     return (
         <>
-            <div className="container">
-                <p>{title}: </p>
+            <div className="container" id={id}>
+                <h3>{title}: </h3>
                 {children}
             </div>
         </>

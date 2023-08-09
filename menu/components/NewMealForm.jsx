@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState, useEffect } from 'react'
 import apiCall from '../javascript/apiCall'
 import { MealsContext } from './MealsContext';
-
+import "../css/newMealForm.css"
 function NewMealForm() {
     const name = useRef(null)
     const img = useRef(null)
@@ -11,12 +11,14 @@ function NewMealForm() {
 
     const { meals, setMeals } = useContext(MealsContext)
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
+        console.log(event)
+        event.preventDefault()
         const data = {
             name: name.current.value,
             img: img.current.value,
             ingredients: ingredients.current.value.split(", "),
-            link: img.current.value,
+            link: link.current.value,
             instructions: instructions.current.value,
         }
         const res = await apiCall("POST", data)
@@ -38,19 +40,23 @@ function NewMealForm() {
         }
     }
     return (
-        <form onSubmit={handleSubmit} >
-            <label htmlFor="name"></label>
-            <input required type="text" name="name" id="name" ref={name} placeholder='Name' />
-            <label htmlFor="img"></label>
-            <input required type="text" name="img" id="img" ref={img} placeholder='img' />
-            <label htmlFor="ingredients"></label>
-            <input required type="text" name="ingredients" id="ingredients" ref={ingredients} placeholder='ingredients' />
-            <label htmlFor="link"></label>
-            <input required type="text" name="link" id="link" ref={link} placeholder='link' />
-            <label htmlFor="instructions"></label>
-            <textarea name="instructions" id="instructions" rows="5" cols="50" ref={instructions} placeholder='Instructions' onKeyDown={handleEnter} />
-            <button type="submit" id="addMeal">Add meal</button>
-        </form>
+        <>
+            <form id='new-meal-form' onSubmit={handleSubmit} >
+                <label id="name" htmlFor="name">
+                    <input required type="text" name="name" ref={name} placeholder='Name' /></label>
+                <label id="img" htmlFor="img">
+                    <input required type="text" name="img" ref={img} placeholder='img' /></label>
+                <label id="link" htmlFor="link">
+                    <input required type="text" name="link" ref={link} placeholder='link' /></label>
+                <label id="ingredients" htmlFor="ingredients">
+                    <input required type="text" name="ingredients" ref={ingredients} placeholder='ingredient, ingredient, ingredient, ...' /></label>
+                <label id="instructions" htmlFor="instructions">
+                    <textarea name="instructions" rows="5" cols="50" ref={instructions} placeholder='Instructions' onKeyDown={handleEnter} /></label>
+                <button type="submit" id="addMeal">Add meal</button>
+
+            </form>
+
+        </>
     )
 }
 

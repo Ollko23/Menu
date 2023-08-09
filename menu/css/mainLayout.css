@@ -1,0 +1,37 @@
+nav {
+    background-color: rgba(var(--primary), .5);
+}
+
+ul.nav {
+    margin: 0;
+    padding: .5rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+nav>ul>li {
+    border-radius: 8px;
+    padding: .6rem .9rem;
+    background-color: rgba(var(--secondary), .4);
+    transition: all.4s;
+}
+
+nav>ul>li:hover {
+    background-color: rgba(var(--secondary), .5);
+}
+
+nav>ul>li.r:hover {
+    transform: translateX(1rem);
+}
+
+nav>ul>li.l:hover {
+    transform: translateX(-1rem);
+}
+
+a {
+    text-decoration: none;
+    color: rgba(var(--primary));
+}

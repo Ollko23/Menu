@@ -1,0 +1,46 @@
+#details {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.center {
+    text-align: center;
+}
+
+#details h1 {
+    margin: .7rem;
+}
+
+#details h2 {
+    margin: 0rem;
+}
+
+#details ul {
+    margin: 0rem;
+}
+
+#details img {
+    width: 30vw;
+    height: auto
+}
+
+#details a {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#details button {
+    border-radius: 8px;
+    padding: .6rem .9rem;
+    background-color: rgba(var(--secondary), .4);
+    transition: all .4s;
+
+}
+
+#details button:hover {
+    background-color: rgba(var(--secondary), .5);
+    transform: scale(1.1);
+}
