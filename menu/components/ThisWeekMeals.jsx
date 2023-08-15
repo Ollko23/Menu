@@ -1,10 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import ReactLoading from 'react-loading';
 import { MealsContext } from './MealsContext';
 import Meal from './Meal';
 import fetchMenu from "../javascript/fetchMenu"
 import "../css/thisWeekMeals.css"
+import apiCall from '../javascript/apiCall';
 function ThisWeekMeals() {
     const { meals, menu, setMenu, setMeals } = useContext(MealsContext);
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         const fetchMeals = async () => {
             try {
@@ -13,7 +17,7 @@ function ThisWeekMeals() {
                 const response = await menu.json()
                 const menuList = response[0].meals
                 if (menuList) setMenu(menuList)
-
+                setIsLoading(false)
             } catch (err) {
                 console.log(err.message)
             }
@@ -57,7 +61,15 @@ function ThisWeekMeals() {
         if (data.parent === 'all-meals') {
             if (menu.length > 6) return;
             const meal = Object.assign({}, meals.find(el => el.name === data.name.toString()));
+            const id = meal._id
             meal._id = await fetchMenu("POST", meal);
+            const update = {
+                objectId: id, newDate: Date.now()
+            }
+
+            const response = await apiCall("PUT", update)
+            console.log(response)
+
             meal.parent = data.parent;
             const newMenu = [...menu, meal];
             setMenu(newMenu);
@@ -86,17 +98,22 @@ function ThisWeekMeals() {
                 <div className="day">Sat</div>
                 <div className="day">Sun</div>
             </div>
-            <div
-                className="meals grid"
-                id="menu"
-                onDrop={drop}
-                onDragOver={allowDrop}
-            >
-                {menu && menu.length > 0 &&
-                    menu.map((meal, index) => {
-                        return <Meal key={index} meal={meal} index={index} />;
-                    })}
-            </div>
+
+            {isLoading ? (
+                <div className="loading"><ReactLoading type={"bars"} color={"rgba(var(--primary), .5)"} height={'auto'} width={'10%'} /></div>
+            ) : (
+                <div
+                    className="meals grid"
+                    id="menu"
+                    onDrop={drop}
+                    onDragOver={allowDrop}
+                >
+                    {menu && menu.length > 0 &&
+                        menu.map((meal, index) => {
+                            return <Meal key={index} meal={meal} index={index} />;
+                        })}
+                </div>
+            )}
         </>
     );
 }

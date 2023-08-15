@@ -15,6 +15,10 @@ export default async (type, data) => {
         case "POST":
             options.body = JSON.stringify(data)
             break;
+        case "PUT":
+            JSON_URL = `${JSON_URL}/${data.objectId}`
+            options.body = JSON.stringify({ newDate: data.newDate })
+            break;
     }
 
     try {

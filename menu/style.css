@@ -37,11 +37,28 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 30vh;
-    /* grid-template-rows: 17vw; */
     gap: 1rem;
     padding: 1rem;
 }
 
+#searchBox {
+    display: flex;
+    justify-content: center;
+    margin: .4rem auto;
+    width: 90%;
+}
+
+#searchBox>input {
+    background-color: rgba(var(--primary), .5);
+    color: white;
+    border: none;
+    padding: .4rem;
+    border-radius: 1rem;
+}
+
+#searchBox>input::placeholder {
+    color: rgba(var(--primary), .8);
+}
 
 /* utulities */
 .hide {
